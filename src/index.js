@@ -1,3 +1,5 @@
 import "./styles.css";
+import projects from "./projects.js";
 
-console.log("Webpack is working!");
+projects.addProject("school");
+projects.logProject();
