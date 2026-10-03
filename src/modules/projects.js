@@ -6,8 +6,8 @@ const projects = (function () {
     const project = createProject(name);
     projects.push(project);
   }
-  function logProject() {
-    console.log(projects);
+  function getProject() {
+    return projects;
   }
   function addTask(project, title) {
     for (let i = 0; i < projects.length; i++) {
@@ -16,6 +16,6 @@ const projects = (function () {
       }
     }
   }
-  return { addProject, logProject, addTask };
+  return { addProject, getProject, addTask };
 })();
 export default projects;

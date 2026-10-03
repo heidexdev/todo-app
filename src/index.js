@@ -1,7 +1,9 @@
 import "./styles.css";
 import projects from "./modules/projects.js";
 import createTask from "./modules/createTask.js";
-
+import render from "./modules/render.js";
 projects.addProject("school");
 createTask("school", "do homework");
-projects.logProject();
+const p = projects.getProject();
+console.log(p);
+render.renderProjects();
