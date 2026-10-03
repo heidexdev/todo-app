@@ -9,6 +9,9 @@ const projects = (function () {
   function logProject() {
     console.log(projects);
   }
-  return { addProject, logProject };
+  function addTask(title) {
+    projects[0].todos.push(title);
+  }
+  return { addProject, logProject, addTask };
 })();
 export default projects;
