@@ -3,5 +3,5 @@ import projects from "./modules/projects.js";
 import createTask from "./modules/createTask.js";
 
 projects.addProject("school");
-createTask('do homework')
+createTask("school", "do homework");
 projects.logProject();

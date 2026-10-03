@@ -9,8 +9,12 @@ const projects = (function () {
   function logProject() {
     console.log(projects);
   }
-  function addTask(title) {
-    projects[0].todos.push(title);
+  function addTask(project, title) {
+    for (let i = 0; i < projects.length; i++) {
+      if (projects[i].name === project) {
+        projects[i].todos.push(title);
+      }
+    }
   }
   return { addProject, logProject, addTask };
 })();

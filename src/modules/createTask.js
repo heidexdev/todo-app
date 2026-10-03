@@ -1,5 +1,5 @@
 import projects from "./projects.js";
-function createTask(title) {
-  projects.addTask(title);
+function createTask(project,title) {
+  projects.addTask(project,title);
 }
 export default createTask;
