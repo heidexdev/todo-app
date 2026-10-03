@@ -1,0 +1,30 @@
+{
+  "name": "webpack-template",
+  "version": "1.0.0",
+  "description": "Vanilla JavaScript Webpack project template",
+  "scripts": {
+    "dev": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heidexdev/webpack-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/heidexdev/webpack-template/issues"
+  },
+  "homepage": "https://github.com/heidexdev/webpack-template#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.5",
+    "html-webpack-plugin": "^5.6.8",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.0.0",
+    "webpack-merge": "^6.0.1"
+  }
+}
