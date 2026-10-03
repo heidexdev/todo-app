@@ -1,6 +1,7 @@
 import projects from "./projects.js";
 const render = (function () {
   const projectsContainer = document.querySelector(".nav-items");
+  const tasksContainer = document.querySelector(".tasks");
   function renderProjects() {
     const projectsArr = projects.getProject();
     projectsArr.forEach((project) => {
@@ -9,6 +10,18 @@ const render = (function () {
       projectsContainer.appendChild(projectName);
     });
   }
-  return { renderProjects };
+  function projectTasks(currentProject) {
+    const projectsArr = projects.getProject();
+    projectsArr.forEach((project) => {
+      if (project.name === currentProject) {
+        project.todos.forEach((task) => {
+          const taskP = document.createElement("p");
+          taskP.textContent = task;
+          tasksContainer.appendChild(taskP);
+        });
+      }
+    });
+  }
+  return { renderProjects,projectTasks };
 })();
 export default render;

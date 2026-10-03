@@ -7,3 +7,4 @@ createTask("school", "do homework");
 const p = projects.getProject();
 console.log(p);
 render.renderProjects();
+render.projectTasks('school');
