@@ -1,24 +1,35 @@
 import render from "./render.js";
 import projects from "./projects.js";
+import createTask from "./createTask.js";
 const eventHandler = (function () {
+  let currentProject = "";
   function loadProjectTasks() {
     const projects = document.querySelectorAll(".project");
     projects.forEach((project) => {
       project.addEventListener("click", () => {
         const projectName = project.dataset.projectName;
+        currentProject = project.dataset.projectName;
         render.projectTasks(projectName);
       });
     });
   }
   function addProject() {
-    const addTaskBtn = document.querySelector(".add-project");
-    addTaskBtn.addEventListener("click", () => {
+    const addProjectBtn = document.querySelector(".add-project");
+    addProjectBtn.addEventListener("click", () => {
       const projectNameInput = prompt("enter the project name:");
       projects.addProject(projectNameInput);
       render.renderProjects();
       loadProjectTasks();
     });
   }
-  return { loadProjectTasks, addProject };
+  function addTask() {
+    const addTaskBtn = document.querySelector(".add-task");
+    addTaskBtn.addEventListener("click", () => {
+      const taskTitleInput = prompt("enter the title of the task:");
+      createTask(currentProject, taskTitleInput);
+      render.projectTasks(currentProject);
+    });
+  }
+  return { loadProjectTasks, addProject, addTask };
 })();
 export default eventHandler;

@@ -10,3 +10,4 @@ console.log(p);
 render.renderProjects();
 eventHandler.loadProjectTasks();
 eventHandler.addProject();
+eventHandler.addTask();
