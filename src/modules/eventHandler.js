@@ -39,8 +39,6 @@ const eventHandler = (function () {
       render.projectTasks();
       render.title();
       loadProjectTasks();
-      const log = projects.getProject();
-      console.log(log);
     });
   }
   return { loadProjectTasks, addProject, addTask, deleteProject };
