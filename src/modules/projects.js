@@ -16,6 +16,14 @@ const projects = (function () {
       }
     }
   }
-  return { addProject, getProject, addTask };
+  function deleteProject(projectName) {
+    projects.forEach((project) => {
+      if (project.name === projectName) {
+        const projectIndex = projects.indexOf(project);
+        projects.splice(projectIndex, 1);
+      }
+    });
+  }
+  return { addProject, getProject, addTask,deleteProject };
 })();
 export default projects;

@@ -14,6 +14,9 @@ const render = (function () {
     });
   }
   function projectTasks(currentProject) {
+    if (currentProject === undefined) {
+      tasksContainer.innerHTML = "";
+    }
     tasksContainer.innerHTML = "";
     const projectsArr = projects.getProject();
     projectsArr.forEach((project) => {
@@ -30,6 +33,6 @@ const render = (function () {
     const projectTitle = document.querySelector(".project-title");
     projectTitle.textContent = projectName;
   }
-  return { renderProjects, projectTasks,title };
+  return { renderProjects, projectTasks, title };
 })();
 export default render;

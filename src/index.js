@@ -11,3 +11,4 @@ render.renderProjects();
 eventHandler.loadProjectTasks();
 eventHandler.addProject();
 eventHandler.addTask();
+eventHandler.deleteProject();

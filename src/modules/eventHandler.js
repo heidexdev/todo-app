@@ -31,7 +31,15 @@ const eventHandler = (function () {
       render.projectTasks(currentProject);
     });
   }
-  function deleteProject() {}
-  return { loadProjectTasks, addProject, addTask };
+  function deleteProject() {
+    const projectDeleteBtn = document.querySelector(".project-dl-btn");
+    projectDeleteBtn.addEventListener("click", () => {
+      projects.deleteProject(currentProject);
+      render.renderProjects();
+      render.projectTasks();
+      render.title();
+    });
+  }
+  return { loadProjectTasks, addProject, addTask, deleteProject };
 })();
 export default eventHandler;
