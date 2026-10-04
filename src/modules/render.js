@@ -7,6 +7,8 @@ const render = (function () {
     projectsArr.forEach((project) => {
       const projectName = document.createElement("h4");
       projectName.textContent = project.name;
+      projectName.setAttribute("data-project-name", project.name);
+      projectName.classList.add("project");
       projectsContainer.appendChild(projectName);
     });
   }
@@ -22,6 +24,6 @@ const render = (function () {
       }
     });
   }
-  return { renderProjects,projectTasks };
+  return { renderProjects, projectTasks };
 })();
 export default render;
