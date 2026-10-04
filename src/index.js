@@ -9,3 +9,4 @@ const p = projects.getProject();
 console.log(p);
 render.renderProjects();
 eventHandler.loadProjectTasks();
+eventHandler.addProject();

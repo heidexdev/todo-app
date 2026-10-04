@@ -3,6 +3,7 @@ const render = (function () {
   const projectsContainer = document.querySelector(".nav-items");
   const tasksContainer = document.querySelector(".tasks");
   function renderProjects() {
+    projectsContainer.innerHTML = "";
     const projectsArr = projects.getProject();
     projectsArr.forEach((project) => {
       const projectName = document.createElement("h4");
