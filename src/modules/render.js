@@ -26,6 +26,10 @@ const render = (function () {
       }
     });
   }
-  return { renderProjects, projectTasks };
+  function title(projectName) {
+    const projectTitle = document.querySelector(".project-title");
+    projectTitle.textContent = projectName;
+  }
+  return { renderProjects, projectTasks,title };
 })();
 export default render;

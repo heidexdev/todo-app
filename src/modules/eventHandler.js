@@ -10,6 +10,7 @@ const eventHandler = (function () {
         const projectName = project.dataset.projectName;
         currentProject = project.dataset.projectName;
         render.projectTasks(projectName);
+        render.title(projectName);
       });
     });
   }
@@ -30,6 +31,7 @@ const eventHandler = (function () {
       render.projectTasks(currentProject);
     });
   }
+  function deleteProject() {}
   return { loadProjectTasks, addProject, addTask };
 })();
 export default eventHandler;
