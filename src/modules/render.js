@@ -13,6 +13,7 @@ const render = (function () {
     });
   }
   function projectTasks(currentProject) {
+    tasksContainer.innerHTML = "";
     const projectsArr = projects.getProject();
     projectsArr.forEach((project) => {
       if (project.name === currentProject) {

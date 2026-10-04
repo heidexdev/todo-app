@@ -3,14 +3,12 @@ const eventHandler = (function () {
   function loadProjectTasks() {
     const projects = document.querySelectorAll(".project");
     projects.forEach((project) => {
-      project.addEventListener("click", () => {
-        const projectName = project.dataset.projectName;
-        console.log(projectName);
-
-        render.projectTasks(projectName);
-      });
+        project.addEventListener("click", () => {
+          const projectName = project.dataset.projectName;
+          render.projectTasks(projectName);          
+        });
     });
   }
-  return {loadProjectTasks}
+  return { loadProjectTasks };
 })();
 export default eventHandler;
