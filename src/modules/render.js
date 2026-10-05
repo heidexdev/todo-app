@@ -1,4 +1,5 @@
 import projects from "./projects.js";
+import { format } from "date-fns";
 const render = (function () {
   const projectsContainer = document.querySelector(".nav-items");
   const tasksContainer = document.querySelector(".tasks");
@@ -29,7 +30,7 @@ const render = (function () {
           taskTitle.textContent = task.title;
           taskContainer.appendChild(taskTitle);
           const taskDate = document.createElement("p");
-          taskDate.textContent = task.date;
+          taskDate.textContent = format(task.date, "MMM d, yyyy");
           taskContainer.appendChild(taskDate);
           const taskDescription = document.createElement("p");
           taskDescription.textContent = task.description;
