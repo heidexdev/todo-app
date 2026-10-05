@@ -16,6 +16,7 @@ const render = (function () {
   function projectTasks(currentProject) {
     if (currentProject === undefined) {
       tasksContainer.innerHTML = "";
+      return;
     }
     tasksContainer.innerHTML = "";
     const projectsArr = projects.getProject();
