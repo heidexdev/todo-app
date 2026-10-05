@@ -1,3 +1,4 @@
+import eventHandler from "./eventHandler.js";
 import projects from "./projects.js";
 import { format } from "date-fns";
 const render = (function () {
@@ -26,25 +27,35 @@ const render = (function () {
         project.todos.forEach((task) => {
           const taskContainer = document.createElement("div");
           taskContainer.classList.add("task");
+
           const taskTitle = document.createElement("h4");
+          taskTitle.classList.add("task-title");
           taskTitle.textContent = task.title;
           taskContainer.appendChild(taskTitle);
+
           if (task.date !== "") {
             const taskDate = document.createElement("p");
             taskDate.textContent = format(task.date, "MMM d, yyyy");
+            taskDate.classList.add("task-date");
             taskContainer.appendChild(taskDate);
           }
+
           const taskDescription = document.createElement("p");
           taskDescription.textContent = task.description;
+          taskDescription.classList.add("task-description");
           taskContainer.appendChild(taskDescription);
+
           const taskPriority = document.createElement("p");
           taskPriority.textContent = task.priority;
+          taskPriority.classList.add("task-priority");
           taskContainer.appendChild(taskPriority);
+
           const editBtn = document.createElement("button");
           editBtn.textContent = "edit";
           editBtn.classList.add("edit-btn");
           taskContainer.appendChild(editBtn);
           tasksContainer.appendChild(taskContainer);
+          eventHandler.editTask();
         });
       }
     });

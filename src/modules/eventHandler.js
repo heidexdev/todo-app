@@ -56,6 +56,7 @@ const eventHandler = (function () {
     addTask();
     deleteProject();
     openTaskForm();
+    editTask();
   }
   function openTaskForm() {
     const addTaskBtn = document.querySelector(".add-task");
@@ -63,11 +64,32 @@ const eventHandler = (function () {
       dialog.showModal();
     });
   }
+  function editTask() {
+    const editBtns = document.querySelectorAll(".edit-btn");
+    editBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const taskContainer = btn.parentElement;
+        const taskTitle =
+          taskContainer.querySelector(".task-title").textContent;
+        const taskDate = taskContainer.querySelector(".task-date").textContent;
+        const taskDescription =
+          taskContainer.querySelector(".task-description").textContent;
+        const taskPriority =
+          taskContainer.querySelector(".task-priority").textContent;
+        document.querySelector("#task-title").value = taskTitle;
+        document.querySelector("#task-date").value = taskDate;
+        document.querySelector("#task-description").value = taskDescription;
+        document.querySelector("#task-priority").value = taskPriority;
+        dialog.showModal();
+      });
+    });
+  }
   return {
     loadProjectTasks,
     addProject,
     addTask,
     deleteProject,
+    editTask,
     init,
   };
 })();
