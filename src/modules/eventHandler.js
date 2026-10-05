@@ -27,8 +27,7 @@ const eventHandler = (function () {
   }
   function addTask() {
     const formSubmitBtn = document.querySelector(".submit-task");
-    formSubmitBtn.addEventListener("click", (e) => {
-      e.preventDefault();
+    formSubmitBtn.addEventListener("click", () => {
       const title = document.querySelector("#task-title").value;
       const date = document.querySelector("#task-date").value;
       const description = document.querySelector("#task-description").value;
