@@ -78,6 +78,8 @@ const eventHandler = (function () {
     deleteProject();
     openTaskForm();
     editTask();
+    toggleTaskCompletion();
+
     dialog.addEventListener("close", () => {
       taskBeingEdited = null;
       dialog.querySelector("form").reset();
@@ -121,6 +123,16 @@ const eventHandler = (function () {
       });
     });
   }
+  function toggleTaskCompletion() {
+    const checkboxes = document.querySelectorAll(".task-checkbox");
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const taskContainer = checkbox.closest(".task");
+        const taskId = taskContainer.dataset.taskId;
+        projects.toggleCompleted(currentProject, taskId);
+      });
+    });
+  }
   return {
     loadProjectTasks,
     addProject,
@@ -128,6 +140,7 @@ const eventHandler = (function () {
     deleteProject,
     editTask,
     init,
+    toggleTaskCompletion,
   };
 })();
 export default eventHandler;

@@ -41,6 +41,16 @@ const projects = (function () {
     task.description = updatedTask.description;
     task.priority = updatedTask.priority;
   }
+  function toggleCompleted(projectName, taskId) {
+    const project = projects.find((project) => project.name === projectName);
+    if (!project) return;
+
+    const task = project.todos.find(
+      (task) => String(task.id) === String(taskId),
+    );
+    if (!task) return;
+    task.isCompleted = task.isCompleted === true ? false : true;
+  }
 
   return {
     addProject,
@@ -48,6 +58,7 @@ const projects = (function () {
     addTask,
     deleteProject,
     editTask,
+    toggleCompleted,
   };
 })();
 export default projects;

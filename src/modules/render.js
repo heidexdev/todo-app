@@ -74,6 +74,7 @@ const render = (function () {
 
     // Call this ONCE after all task elements exist in the DOM
     eventHandler.editTask();
+    eventHandler.toggleTaskCompletion();
   }
 
   function title(projectName) {
