@@ -2,7 +2,7 @@ import render from "./render.js";
 import projects from "./projects.js";
 import createTask from "./createTask.js";
 const eventHandler = (function () {
-  let currentProject = "";
+  let currentProject = "inbox";
   function loadProjectTasks() {
     const projects = document.querySelectorAll(".project");
     projects.forEach((project) => {

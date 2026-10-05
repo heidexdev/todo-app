@@ -34,6 +34,10 @@ const render = (function () {
     const projectTitle = document.querySelector(".project-title");
     projectTitle.textContent = projectName;
   }
-  return { renderProjects, projectTasks, title };
+  function projectTT(projectName) {
+    projectTasks(projectName);
+    title(projectName);
+  }
+  return { renderProjects, projectTasks, title, projectTT };
 })();
 export default render;

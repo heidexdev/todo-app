@@ -7,3 +7,4 @@ projects.addProject("school");
 createTask("school", "do homework");
 render.renderProjects();
 eventHandler.init();
+render.projectTT("inbox");
