@@ -20,6 +20,8 @@ const eventHandler = (function () {
       const projectNameInput = prompt("enter the project name:");
       projects.addProject(projectNameInput);
       render.renderProjects();
+      render.projectTT(projectNameInput);
+      currentProject = projectNameInput;
       loadProjectTasks();
     });
   }
