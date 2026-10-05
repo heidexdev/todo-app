@@ -6,7 +6,8 @@ function createTask(project,title, date, description, priority) {
     title,
     date,
     description,
-    priority
+    priority,
+    isCompleted: false,
   };
   projects.addTask(project, taskObject);
 }
