@@ -11,13 +11,13 @@ const projects = (function () {
   function getProject() {
     return projects;
   }
-  function addTask(project, taskObject) {
-    for (let i = 0; i < projects.length; i++) {
-      if (projects[i].name === project) {
-        projects[i].todos.push(taskObject);
-      }
+  function addTask(projectName, taskObject) {
+    const project = projects.find((project) => project.name === projectName);
+    if (project) {
+      project.todos.push(taskObject);
     }
   }
+
   function deleteProject(projectName) {
     projects.forEach((project) => {
       if (project.name === "inbox") return;
@@ -27,6 +27,27 @@ const projects = (function () {
       }
     });
   }
-  return { addProject, getProject, addTask, deleteProject };
+  function editTask(projectName, taskId, updatedTask) {
+    const project = projects.find((project) => project.name === projectName);
+    if (!project) return;
+
+    const task = project.todos.find(
+      (task) => String(task.id) === String(taskId),
+    );
+    if (!task) return;
+
+    task.title = updatedTask.title;
+    task.date = updatedTask.date;
+    task.description = updatedTask.description;
+    task.priority = updatedTask.priority;
+  }
+
+  return {
+    addProject,
+    getProject,
+    addTask,
+    deleteProject,
+    editTask,
+  };
 })();
 export default projects;
