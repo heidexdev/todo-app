@@ -35,9 +35,9 @@ const eventHandler = (function () {
     const projectDeleteBtn = document.querySelector(".project-dl-btn");
     projectDeleteBtn.addEventListener("click", () => {
       projects.deleteProject(currentProject);
+      currentProject = "inbox";
       render.renderProjects();
-      render.projectTasks();
-      render.title();
+      render.projectTT(currentProject);
       loadProjectTasks();
     });
   }
