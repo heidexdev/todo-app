@@ -11,10 +11,10 @@ const projects = (function () {
   function getProject() {
     return projects;
   }
-  function addTask(project, title) {
+  function addTask(project, taskObject) {
     for (let i = 0; i < projects.length; i++) {
       if (projects[i].name === project) {
-        projects[i].todos.push(title);
+        projects[i].todos.push(taskObject);
       }
     }
   }
