@@ -17,6 +17,23 @@
         <button class="project-dl-btn">delete project</button>
       </div>
       <div class="main">
+        <!-- <dialog> -->
+          <form action="">
+            <input type="text" placeholder="enter task name" id="task-name">
+            <label for="task-name">Task Name</label>
+            <input type="date" id="task-date">
+            <label for="task-date">Task Date</label>
+            <input type="text" placeholder="enter task description" id="task-description">
+            <label for="task-description">Task Description</label>
+            select name="task-priority" id="task-priority">
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
+            <label for="task-priority">Task Priority</label>
+            <button class="submit-task">submit</button>
+          </form>
+        <!-- </dialog> -->
         <button class="add-task">add task</button>
         <div class="tasks"></div>
       </div>
