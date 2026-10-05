@@ -52,6 +52,22 @@ const eventHandler = (function () {
     addTask();
     deleteProject();
   }
-  return { loadProjectTasks, addProject, addTask, deleteProject, init };
+//   function editTask() {
+//     const editBtns = document.querySelectorAll(".edit-btn");
+//     editBtns.forEach((btn) => {
+//       btn.addEventListener("click", () => {
+//         const taskContainer = btn.parentElement;
+//         const taskTitle = taskContainer.querySelector("h4").textContent;
+//         const taskDate = taskContainer.querySelector("p:nth-of-type(1)").textContent;
+//         const taskDescription = taskContainer.querySelector("p:nth-of-type(2)").textContent;
+//         const taskPriority = taskContainer.querySelector("p:nth-of-type(3)").textContent;
+//         document.querySelector("#task-title").value = taskTitle;
+//         document.querySelector("#task-date").value = taskDate;
+//         document.querySelector("#task-description").value = taskDescription;
+//         document.querySelector("#task-priority").value = taskPriority;
+//       });
+//     });
+//   }
+  return { loadProjectTasks, addProject, addTask, deleteProject, init, editTask };
 })();
 export default eventHandler;

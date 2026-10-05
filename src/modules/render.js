@@ -38,6 +38,10 @@ const render = (function () {
           const taskPriority = document.createElement("p");
           taskPriority.textContent = task.priority;
           taskContainer.appendChild(taskPriority);
+          const editBtn = document.createElement("button");
+          editBtn.textContent = "edit";
+          editBtn.classList.add("edit-btn");
+          taskContainer.appendChild(editBtn);
           tasksContainer.appendChild(taskContainer);
         });
       }

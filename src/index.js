@@ -3,8 +3,6 @@ import projects from "./modules/projects.js";
 import createTask from "./modules/createTask.js";
 import render from "./modules/render.js";
 import eventHandler from "./modules/eventHandler.js";
-projects.addProject("school");
-createTask("school", "do homework");
 render.renderProjects();
 eventHandler.init();
 render.projectTT("inbox");
