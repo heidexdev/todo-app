@@ -27,7 +27,8 @@ const render = (function () {
         project.todos.forEach((task) => {
           const taskContainer = document.createElement("div");
           taskContainer.classList.add("task");
-
+          taskContainer.setAttribute("data-task-id", task.id);
+          
           const taskTitle = document.createElement("h4");
           taskTitle.classList.add("task-title");
           taskTitle.textContent = task.title;
