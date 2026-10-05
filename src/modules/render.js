@@ -23,9 +23,21 @@ const render = (function () {
     projectsArr.forEach((project) => {
       if (project.name === currentProject) {
         project.todos.forEach((task) => {
-          const taskP = document.createElement("p");
-          taskP.textContent = task;
-          tasksContainer.appendChild(taskP);
+          const taskContainer = document.createElement("div");
+          taskContainer.classList.add("task");
+          const taskTitle = document.createElement("h4");
+          taskTitle.textContent = task.title;
+          taskContainer.appendChild(taskTitle);
+          const taskDate = document.createElement("p");
+          taskDate.textContent = task.date;
+          taskContainer.appendChild(taskDate);
+          const taskDescription = document.createElement("p");
+          taskDescription.textContent = task.description;
+          taskContainer.appendChild(taskDescription);
+          const taskPriority = document.createElement("p");
+          taskPriority.textContent = task.priority;
+          taskContainer.appendChild(taskPriority);
+          tasksContainer.appendChild(taskContainer);
         });
       }
     });

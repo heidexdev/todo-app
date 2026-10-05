@@ -26,10 +26,14 @@ const eventHandler = (function () {
     });
   }
   function addTask() {
-    const addTaskBtn = document.querySelector(".add-task");
-    addTaskBtn.addEventListener("click", () => {
-      const taskTitleInput = prompt("enter the title of the task:");
-      createTask(currentProject, taskTitleInput);
+    const formSubmitBtn = document.querySelector(".submit-task");
+    formSubmitBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const title = document.querySelector("#task-title").value;
+      const date = document.querySelector("#task-date").value;
+      const description = document.querySelector("#task-description").value;
+      const priority = document.querySelector("#task-priority").value;
+      createTask(currentProject, title, date, description, priority);
       render.projectTasks(currentProject);
     });
   }
