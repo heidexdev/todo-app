@@ -7,7 +7,7 @@ const projects = (function () {
     projects.push(project);
   }
   addProject("inbox");
-  
+
   function getProject() {
     return projects;
   }

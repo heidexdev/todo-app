@@ -47,6 +47,6 @@ const eventHandler = (function () {
     addTask();
     deleteProject();
   }
-  return { loadProjectTasks, addProject, addTask, deleteProject,init };
+  return { loadProjectTasks, addProject, addTask, deleteProject, init };
 })();
 export default eventHandler;
