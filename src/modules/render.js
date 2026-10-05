@@ -29,9 +29,11 @@ const render = (function () {
           const taskTitle = document.createElement("h4");
           taskTitle.textContent = task.title;
           taskContainer.appendChild(taskTitle);
-          const taskDate = document.createElement("p");
-          taskDate.textContent = format(task.date, "MMM d, yyyy");
-          taskContainer.appendChild(taskDate);
+          if (task.date !== "") {
+            const taskDate = document.createElement("p");
+            taskDate.textContent = format(task.date, "MMM d, yyyy");
+            taskContainer.appendChild(taskDate);
+          }
           const taskDescription = document.createElement("p");
           taskDescription.textContent = task.description;
           taskContainer.appendChild(taskDescription);
