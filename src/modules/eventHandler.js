@@ -59,6 +59,7 @@ const eventHandler = (function () {
       render.projectTasks(currentProject);
       dialog.close();
       dialog.querySelector("form").reset();
+      deleteTask();
     });
   }
   function deleteProject() {
@@ -78,6 +79,7 @@ const eventHandler = (function () {
     deleteProject();
     openTaskForm();
     editTask();
+    deleteTask();
     toggleTaskCompletion();
 
     dialog.addEventListener("close", () => {
@@ -133,6 +135,31 @@ const eventHandler = (function () {
       });
     });
   }
+
+  function deleteTask() {
+    const deleteBtns = document.querySelectorAll(".delete-btn");
+    deleteBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const taskContainer = btn.closest(".task");
+        const taskId = taskContainer.dataset.taskId;
+
+        const project = projects
+          .getProject()
+          .find((project) => project.name === currentProject);
+
+        if (!project) return;
+
+        const task = project.todos.find(
+          (task) => String(task.id) === String(taskId),
+        );
+
+        if (!task) return;
+
+        projects.deleteTask(currentProject, task.id);
+        render.projectTasks(currentProject);
+      });
+    });
+  }
   return {
     loadProjectTasks,
     addProject,
@@ -141,6 +168,7 @@ const eventHandler = (function () {
     editTask,
     init,
     toggleTaskCompletion,
+    deleteTask,
   };
 })();
 export default eventHandler;

@@ -41,6 +41,18 @@ const projects = (function () {
     task.description = updatedTask.description;
     task.priority = updatedTask.priority;
   }
+  function deleteTask(projectName, taskId) {
+    projects.forEach((project) => {
+      if (project.name === projectName) {
+        project.todos.forEach((task) => {
+          if (task.id === taskId) {
+            const taskIndex = project.todos.indexOf(task);
+            project.todos.splice(taskIndex, 1);
+          }
+        });
+      }
+    });
+  }
   function toggleCompleted(projectName, taskId) {
     const project = projects.find((project) => project.name === projectName);
     if (!project) return;
@@ -59,6 +71,7 @@ const projects = (function () {
     deleteProject,
     editTask,
     toggleCompleted,
+    deleteTask,
   };
 })();
 export default projects;

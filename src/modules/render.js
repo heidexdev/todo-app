@@ -61,11 +61,16 @@ const render = (function () {
           editBtn.classList.add("edit-btn");
           taskContainer.appendChild(editBtn);
 
+          const deleteBtn = document.createElement("button");
+          deleteBtn.textContent = "delete";
+          deleteBtn.classList.add("delete-btn");
+          taskContainer.appendChild(deleteBtn);
+
           const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.checked = task.isCompleted;
-            checkbox.classList.add("task-checkbox");
-            taskContainer.appendChild(checkbox);
+          checkbox.type = "checkbox";
+          checkbox.checked = task.isCompleted;
+          checkbox.classList.add("task-checkbox");
+          taskContainer.appendChild(checkbox);
 
           tasksContainer.appendChild(taskContainer);
         });
