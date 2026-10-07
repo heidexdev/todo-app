@@ -19,12 +19,18 @@ const render = (function () {
   }
 
   function projectTasks(currentProject) {
-    if (currentProject === undefined) {
-      tasksContainer.innerHTML = "";
-      return;
-    }
+    const uncompletedTasks = tasksContainer.querySelector(".uncompleted");
+    const completedTasks = tasksContainer.querySelector(".completed");
 
-    tasksContainer.innerHTML = "";
+    if (!uncompletedTasks || !completedTasks) return;
+
+    uncompletedTasks.innerHTML = "";
+    completedTasks.innerHTML = "";
+
+    if (currentProject === undefined) return;
+
+    uncompletedTasks.innerHTML = "";
+    completedTasks.innerHTML = "";
     const projectsArr = projects.getProject();
 
     projectsArr.forEach((project) => {
@@ -72,7 +78,12 @@ const render = (function () {
           checkbox.classList.add("task-checkbox");
           taskContainer.appendChild(checkbox);
 
-          tasksContainer.appendChild(taskContainer);
+          if (checkbox.checked === true) {
+            completedTasks.appendChild(taskContainer);
+          } else {
+            uncompletedTasks.appendChild(taskContainer);
+          }
+          //   tasksContainer.appendChild(taskContainer);
         });
       }
     });

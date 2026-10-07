@@ -132,6 +132,7 @@ const eventHandler = (function () {
         const taskContainer = checkbox.closest(".task");
         const taskId = taskContainer.dataset.taskId;
         projects.toggleCompleted(currentProject, taskId);
+        render.projectTasks(currentProject);
       });
     });
   }
