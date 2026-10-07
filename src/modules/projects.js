@@ -5,8 +5,8 @@ const projects = (function () {
   function addProject(name) {
     const project = createProject(name);
     projects.push(project);
+    save();
   }
-  addProject("inbox");
 
   function getProject() {
     return projects;
@@ -15,6 +15,7 @@ const projects = (function () {
     const project = projects.find((project) => project.name === projectName);
     if (project) {
       project.todos.push(taskObject);
+      save();
     }
   }
 
@@ -26,6 +27,7 @@ const projects = (function () {
         projects.splice(projectIndex, 1);
       }
     });
+    save();
   }
   function editTask(projectName, taskId, updatedTask) {
     const project = projects.find((project) => project.name === projectName);
@@ -40,6 +42,7 @@ const projects = (function () {
     task.date = updatedTask.date;
     task.description = updatedTask.description;
     task.priority = updatedTask.priority;
+    save();
   }
   function deleteTask(projectName, taskId) {
     const project = projects.find((project) => project.name === projectName);
@@ -51,6 +54,7 @@ const projects = (function () {
     if (taskIndex === -1) return;
 
     project.todos.splice(taskIndex, 1);
+    save();
   }
   function toggleCompleted(projectName, taskId) {
     const project = projects.find((project) => project.name === projectName);
@@ -61,8 +65,24 @@ const projects = (function () {
     );
     if (!task) return;
     task.isCompleted = task.isCompleted === true ? false : true;
+    save();
+  }
+  function save() {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  }
+  function load() {
+    const storedProjects = localStorage.getItem("projects");
+    if (storedProjects) {
+      const parsedProjects = JSON.parse(storedProjects);
+      parsedProjects.forEach((project) => {
+        projects.push(project);
+      });
+    } else {
+      addProject("inbox");
+    }
   }
 
+  load();
   return {
     addProject,
     getProject,
