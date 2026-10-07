@@ -5,21 +5,10 @@ import createTask from "./createTask.js";
 const eventHandler = (function () {
   const dialog = document.querySelector("dialog");
   const tasksContainer = document.querySelector(".tasks");
+  const navItemsContainer = document.querySelector(".nav-items");
 
   let currentProject = "inbox";
   let taskBeingEdited = null;
-
-  function loadProjectTasks() {
-    const projectEls = document.querySelectorAll(".project");
-    projectEls.forEach((project) => {
-      project.addEventListener("click", () => {
-        const projectName = project.dataset.projectName;
-        currentProject = projectName;
-        render.projectTasks(projectName);
-        render.title(projectName);
-      });
-    });
-  }
 
   function addProject() {
     const addProjectBtn = document.querySelector(".add-project");
@@ -31,7 +20,6 @@ const eventHandler = (function () {
       render.renderProjects();
       currentProject = projectNameInput;
       render.projectTT(projectNameInput);
-      loadProjectTasks();
     });
   }
 
@@ -69,7 +57,6 @@ const eventHandler = (function () {
       currentProject = "inbox";
       render.renderProjects();
       render.projectTT(currentProject);
-      loadProjectTasks();
     });
   }
 
@@ -125,7 +112,6 @@ const eventHandler = (function () {
   }
 
   function init() {
-    loadProjectTasks();
     addProject();
     addTask();
     deleteProject();
@@ -134,6 +120,15 @@ const eventHandler = (function () {
     // Delegated listeners — attached once, survive every re-render
     tasksContainer.addEventListener("click", handleTaskClick);
     tasksContainer.addEventListener("change", handleTaskChange);
+
+    navItemsContainer.addEventListener("click", (e) => {
+      const projectEl = e.target.closest(".project");
+      if (!projectEl) return;
+      const projectName = projectEl.dataset.projectName;
+      currentProject = projectName;
+      render.projectTasks(projectName);
+      render.title(projectName);
+    });
 
     dialog.addEventListener("close", () => {
       taskBeingEdited = null;
