@@ -1,4 +1,3 @@
-import { da } from "date-fns/locale";
 import projects from "./projects.js";
 function createTask(project,title, date, description, priority) {
   const taskObject = {
