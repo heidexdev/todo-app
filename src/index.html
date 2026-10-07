@@ -19,22 +19,22 @@
       <div class="main">
         <dialog id="task-inputs">
           <form action="">
-            <input type="text" placeholder="enter task title" id="task-title" />
             <label for="task-title">Task title</label>
-            <input type="date" id="task-date" />
+            <input type="text" placeholder="enter task title" id="task-title" />
             <label for="task-date">Task Date</label>
+            <input type="date" id="task-date" />
+            <label for="task-description">Task Description</label>
             <input
               type="text"
               placeholder="enter task description"
               id="task-description"
             />
-            <label for="task-description">Task Description</label>
+            <label for="task-priority">Task Priority</label>
             <select name="task-priority" id="task-priority">
               <option value="low">low</option>
               <option value="medium">medium</option>
               <option value="high">high</option>
             </select>
-            <label for="task-priority">Task Priority</label>
             <button class="submit-task">submit</button>
           </form>
         </dialog>
