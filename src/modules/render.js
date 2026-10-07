@@ -1,4 +1,3 @@
-import eventHandler from "./eventHandler.js";
 import projects from "./projects.js";
 import { format } from "date-fns";
 
@@ -83,14 +82,9 @@ const render = (function () {
           } else {
             uncompletedTasks.appendChild(taskContainer);
           }
-          //   tasksContainer.appendChild(taskContainer);
         });
       }
     });
-
-    // Call this ONCE after all task elements exist in the DOM
-    eventHandler.editTask();
-    eventHandler.toggleTaskCompletion();
   }
 
   function title(projectName) {
