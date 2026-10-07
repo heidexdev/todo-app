@@ -42,16 +42,15 @@ const projects = (function () {
     task.priority = updatedTask.priority;
   }
   function deleteTask(projectName, taskId) {
-    projects.forEach((project) => {
-      if (project.name === projectName) {
-        project.todos.forEach((task) => {
-          if (task.id === taskId) {
-            const taskIndex = project.todos.indexOf(task);
-            project.todos.splice(taskIndex, 1);
-          }
-        });
-      }
-    });
+    const project = projects.find((project) => project.name === projectName);
+    if (!project) return;
+
+    const taskIndex = project.todos.findIndex(
+      (task) => String(task.id) === String(taskId),
+    );
+    if (taskIndex === -1) return;
+
+    project.todos.splice(taskIndex, 1);
   }
   function toggleCompleted(projectName, taskId) {
     const project = projects.find((project) => project.name === projectName);
